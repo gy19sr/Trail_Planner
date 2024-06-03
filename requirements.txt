@@ -1,0 +1,11 @@
+chromadb==0.5.0
+folium==0.16.0
+geopandas==0.14.4
+langchain_community==0.2.1
+langchain_core==0.2.3
+langchain_openai==0.1.8
+openai==1.31.0
+pandas==2.2.2
+Shapely==2.0.4
+streamlit==1.31.1
+streamlit_folium==0.20.0
