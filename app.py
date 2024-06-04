@@ -469,11 +469,6 @@ if len(st.session_state.messages) >= 1: ##### I need to make this load after
             
             # filter df based on hiking distance 
 
-        if number_of_hikes:
-            num_hikes = st.session_state.num_hikes #number_of_hikes_tool_llm.invoke(query)
-            trails_num = filter_trails_for_num_hikes(st.session_state.trails, num_hikes['num_hikes'])
-            filtered_dfs.append(trails_num)
-
         if hike_difficulty:
             difficulty = st.session_state.difficulty 
             trails_diff = filter_trails_for_difficulty(st.session_state.trails, difficulty['hike_difficulty'])
@@ -492,6 +487,12 @@ if len(st.session_state.messages) >= 1: ##### I need to make this load after
             # Reset index if needed
             trails_final.reset_index(drop=True, inplace=True)
 
+            if number_of_hikes:
+                num_hikes = st.session_state.num_hikes #number_of_hikes_tool_llm.invoke(query)
+                trails_final = trails_final.head(num_hikes['num_hikes'])
+                #trails_num = filter_trails_for_num_hikes(st.session_state.trails, num_hikes['num_hikes'])
+                #filtered_dfs.append(trails_num)
+
             if len(trails_final) == 0:
                 st.markdown("too filtered")
         else:
@@ -500,6 +501,8 @@ if len(st.session_state.messages) >= 1: ##### I need to make this load after
             st.markdown("no filters applied :(")
 
         
+
+       
 
         st.markdown(f"Number of Trails found: **{len(trails_final)}**. Click on the trails below for more details")
 
