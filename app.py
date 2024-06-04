@@ -488,8 +488,10 @@ if len(st.session_state.messages) >= 1: ##### I need to make this load after
             trails_final.reset_index(drop=True, inplace=True)
 
             if number_of_hikes:
+                print('len trails:', len(trails_final))
                 num_hikes = st.session_state.num_hikes #number_of_hikes_tool_llm.invoke(query)
                 trails_final = trails_final.head(num_hikes['num_hikes'])
+                print('len trails:', len(trails_final))
                 #trails_num = filter_trails_for_num_hikes(st.session_state.trails, num_hikes['num_hikes'])
                 #filtered_dfs.append(trails_num)
 
