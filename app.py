@@ -20,6 +20,8 @@ import geopandas as gpd
 from shapely.geometry import Point
 import chromadb
 from folium.features import DivIcon
+import warnings
+warnings.filterwarnings("ignore", category=SyntaxWarning)
 
 # UserWarning: Importing verbose from langchain root module is no longer supported. Please use langchain.globals.set_verbose() / langchain.globals.get_verbose() instead.
             
